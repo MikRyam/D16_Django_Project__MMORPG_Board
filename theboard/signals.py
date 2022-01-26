@@ -81,4 +81,34 @@ def delete_comment_notify(sender, instance, **kwargs):
 
     msg.send()  # отсылаем
 
+
+@receiver(post_save, sender=User)
+def profile_notify(sender, instance, created, **kwargs):
+    ''' Signal to notify the user about changes of his profile settings '''
+    subject = f'Hello, {instance.username}! Profile settings has been changed on MMORPG Board!' 
+    body = f'Hello, {instance.username}! Profile settings on MMORPG Board has been changed!' 
+    email = instance.email
+
+    print(subject)
+    print('--------------- \\ --------------')
+
+    msg = EmailMultiAlternatives(
+        subject=subject,
+        body=body,
+        from_email='subscribecategory@yandex.ru',
+        to=[email]  # это то же, что и recipients_list
+    )
     
+    # получаем наш html
+    html_content = render_to_string(
+        'theboard/profile_email.html',
+        {
+            'userprofile': instance.userprofile,
+            'body': body
+        }
+    )
+
+    msg.attach_alternative(html_content, "text/html")  # добавляем html
+
+    msg.send()  # отсылаем
+
