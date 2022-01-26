@@ -2,6 +2,7 @@ D16
 
 # Django_Project: MMORPG Board
 
+
 Bulletin board for MMORPG Community
 
 
@@ -17,6 +18,7 @@ The user also has access to a private page with responses to his ads, inside whi
 
 It is also possible to send newsletters to users.
 
+#
 
 Notifications implemented:
 - registration confirmation letter - django-allauth
