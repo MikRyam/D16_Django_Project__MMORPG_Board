@@ -1,8 +1,8 @@
-# D16
+D16
 
-Django_Project: MMORPG Board
+# Django_Project: MMORPG Board
 
-Bulletin board for MMORPG Community
+# Bulletin board for MMORPG Community
 
 
 Users can register on the site by e-mail, after which they receive an email with a registration confirmation link.
